@@ -6,17 +6,21 @@ Projeto desenvolvido na disciplina de Laboratório de Banco de Dados
 
 - **Curso:** Análise e Desenvolvimento de Sistemas
 - **Disciplina:** Laboratório de Banco de Dados
+- **Grupos:** Estou trabalhando neste projeto individualmente
 - **Professor:** Prof. Ricardo Leme
 
+## 🧑‍💻 Desenvolvedor
+
+- [Ellen de Oliveira](https://github.com/ellenolv)
 
 ## 📜 Descrição do Projeto
 
-Este projeto tem como objetivo criar um servidor backend RESTful utilizando Node.js e integrá-lo com o MongoDB na nuvem. O servidor será capaz de realizar operações básicas (GET, POST, PUT e DELETE) em uma Collection do MongoDB que representa os dados da aplicação.
+Neste projeto, criei um servidor backend RESTful utilizando Node.js e o integrei com o MongoDB na nuvem. O servidor é capaz de realizar operações básicas (GET, POST, PUT e DELETE) em uma Collection do MongoDB que representa os dados da aplicação.
 
 ## 📂 Estrutura do Projeto
 
-- [Link do Repositório no GitHub](link do repositório)
-- [Link da API Pública](link da API pública)
+- [Link do Repositório no GitHub](https://github.com/ellenolv/backend-rest-node-mongodb)
+- [Link da API Pública](https://backend-rest-node-mongodb.vercel.app/)
 
 ## 🚀 Executando o Projeto
 
@@ -30,6 +34,7 @@ Siga os passos abaixo para executar o projeto localmente:
 ## 📦 Pacotes Utilizados
 
 - `express`: Framework web rápido, flexível e minimalista para Node.js.
-- `mongodb`: Driver oficial do MongoDB para Node.js.
+- `mongodb@4.2`: Driver oficial do MongoDB para Node.js.
 - `dotenv`: Carrega variáveis ​​de ambiente do arquivo .env para o processo.env.
+- `nodemon` (dev): Ferramenta que monitora as alterações no código-fonte e reinicia automaticamente o servidor.
 - `express-validator`: Middleware para validação de dados de entrada em solicitações HTTP.
