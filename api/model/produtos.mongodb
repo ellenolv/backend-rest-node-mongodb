@@ -1,0 +1,43 @@
+use('FatecItu')
+db.produtos.find()
+
+use('FatecItu')
+db.produtos.insertOne({
+    "codigo_produto": 12345,
+    "nome_produto": "Detergente Multiuso",
+    "descricao": "Detergente líquido multiuso para limpeza geral.",
+    "data_validade": "2022-01-15",
+    "preco_unitario": 9.99,
+    "quantidade_em_estoque": 100
+})
+use('FatecItu')
+db.produtos.insertOne({
+    "codigo_produto": 222,
+    "nome_produto": "Desinfetante de Superfície",
+    "descricao": "Desinfetante em spray para limpeza e desinfecção de superfícies.",
+    "data_validade": "2022-04-15",
+    "preco_unitario": 8.99,
+    "quantidade_em_estoque": 150
+})
+
+use('FatecItu')
+
+// Produto de Limpeza 3
+db.produtos.insertOne({
+    "codigo_produto": 333,
+    "nome_produto": "Limpador de Vidros",
+    "descricao": "Limpador especializado para limpeza de vidros e janelas.",
+    "data_validade": "2024-06-20",
+    "preco_unitario": 9.99,
+    "quantidade_em_estoque": 100
+})
+
+// Produto de Limpeza 4
+db.produtos.insertOne({
+    "codigo_produto": 444,
+    "nome_produto": "Desengordurante",
+    "descricao": "Desengordurante em spray para remover gordura e sujeira de superfícies.",
+    "data_validade": "2024-03-05",
+    "preco_unitario": 7.49,
+    "quantidade_em_estoque": 120
+})

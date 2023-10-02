@@ -1,20 +1,25 @@
-import  express  from "express";
+import express from 'express'
 
 const app = express()
-const port = 4000 //poderia ser qualquer porta
+const port = 4000 
+//import das rotas da app
+import rotasProdutos from './routes/produtos.js'
 
-app.use(express.json()) //Irá fazer o parse de arquivos JSON 
+//app.use(express.urlencoded({ extended: true}))
+app.use(express.json()) // irá fazer o parse de arquivos JSON
 //Rotas de conteúdo público
-app.use('/', express.static('public')) //Oq tiver nessa pasta será apenas renderizado e não processado
+app.use('/', express.static('public'))
 
-//configura o favicon
+//Configura o favicon
 app.use('/favicon.ico', express.static('public/images/favicon.png'))
 
 //Rotas da API
+app.use('/api/produtos', rotasProdutos)
+
 app.get('/api', (req, res) => {
-    res.status(200).json({ //200 OK || 404 NOT FOUND
-        message: 'API Fatec 100% funcional 🖐', //Mostrar que chegou na API 
-        version: '1.0.0'
+    res.status(200).json({
+        message: 'API Fatec 100% funcional🖐',
+        version: '1.0.1'
     })
 })
 //Rotas de Exceção - deve ser a última!
@@ -27,7 +32,6 @@ app.use(function (req, res) {
         }]
     })
 })
-
 app.listen(port, function(){
-    console.log(`👑Servidor rodando na porta ${port}`)
+    console.log(`🖥 Servidor rodando na porta ${port}`)
 })

@@ -1,0 +1,52 @@
+//Teste de Requisições REST dos rotasProdutos
+@baseURL = http://localhost:4000/api/produtos
+
+
+// GET - Lista todos os registros
+GET {{baseURL}}
+Content-Type: application/json
+
+###
+// GET - Lista um registro pelo id
+GET {{baseURL}}/id/651a10706a8e4c124c0788a7
+Content-Type: application/json
+
+
+###
+// GET - Lista um registro pelo nome
+GET {{baseURL}}/nome/Desengordurante
+Content-Type: application/json
+
+###
+// DELETE - Apaga um registro pelo id
+DELETE {{baseURL}}/651a10706a8e4c124c0788a7
+Content-Type: application/json
+
+###
+// POST - Insere um novo registro
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "codigo_produto": 555,
+    "nome_produto": "Sabão em Pó",
+    "descricao": "Sabão em pó para lavagem de roupas.",
+    "data_validade": "2023-12-10",
+    "preco_unitario": 12.99,
+    "quantidade_em_estoque": 80
+}
+
+###
+// PUT - Altera o registro
+PUT {{baseURL}}
+Content-Type: application/json
+
+{
+    "_id": "651a10706a8e4c124c0788a7",
+    "codigo_produto": 222,
+    "nome_produto": "Desinfetante de Superfície - ALTERADO",
+    "descricao": "Desinfetante em spray para limpeza e desinfecção de superfícies.",
+    "data_validade": "2022-04-15",
+    "preco_unitario": 8.99,
+    "quantidade_em_estoque": 150
+  }
