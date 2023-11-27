@@ -1,6 +1,6 @@
 // Teste do endpoint usuarios
 //@baseURL = http://localhost:4000/api/usuarios
-@baseURL  = https://backend-rest-node-mongodb.vercel.app/api/produtos/usuarios
+@baseURL  = https://backend-rest-node-mongodb.vercel.app/api/usuarios
 
 ###
 POST {{baseURL}}
