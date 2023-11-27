@@ -16,13 +16,13 @@
   <title>Menu Principal</title>
 </head>
 
-<body  onload="carregaPrestadores()">
+<body  onload="carregaProdutos()">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="menu.html">Fatec Itu</a>
         <div class="navbar-collapse justify-content-between">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="prestadores.html">Prestadores</a>
+                    <a class="nav-link" href="produtos.html">Produtos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Usuários</a>
@@ -62,29 +62,21 @@
             <input type="text" class="form-control" id="descricao" name="descricao"  placeholder="Escreva mais informações sobre o produto"/>            
           </div>
            <!-- data de validade -->
-           <div class="mb-3 row">
-            <div class="col-md-6">
+           <div class="mb-3 ">
               <label for="data-validade" class="form-label">Data de Validade</label>
               <input type="date" class="form-control" id="data-validade" name="data-validade"  placeholder="dd/mm/aaaa" />
-            </div> <!-- fecha a coluna latitude -->
-            <div class="col-md-6">
-              <label for="inicio" class="form-label">Data de Início de Atividade</label>
-              <input type="date" class="form-control" id="inicio" name="inicio"  required>
-            </div> <!-- fecha a coluna longitude -->
-          </div> <!-- fecha a linha -->
-          <!-- Latitude e Longitude -->
-          <div class="mb-3 row">
-            <div class="col-md-6">
-              <label for="latitude" class="form-label">Latitude</label>
-              <input type="number" class="form-control" id="lat" name="lat" min="-90" max="90" step="any" required placeholder="Latitude em Graus" />
-            </div> <!-- fecha a coluna latitude -->
-            <div class="col-md-6">
-              <label for="longitude" class="form-label">Longitude</label>
-              <input type="number" class="form-control" id="long" name="long" min="-180" max="180" step="any" required placeholder="Longitude em Graus">
-            </div> <!-- fecha a coluna longitude -->
-          </div> <!-- fecha a linha -->
+            </div> 
+            
+            <div class="mb-3">
+              <label for="preco" class="form-label">Preço Unitário: </label>
+              <input type="number" class="form-control" id="preco" name="preco" placeholder="R$ "  required>
+            </div> 
+          <!-- Quantidade -->
+          <div class="mb-3">
+            <label for="quantidade" class="form-label">Quantidade: </label>
+            <input type="number" class="form-control" id="quantidade" name="quantidade"  placeholder="Quantidade" />
           <!-- Botões-->
-          <div class="my-5">
+          <div class="my-3">
             <button class="btn btn-success" id="salvar" type="submit">
               <i class="bi bi-save"></i> Salvar
             </button>
@@ -98,18 +90,19 @@
         <img src="images/produtos.svg" title="Produtos" class="img w-100 mx-auto mt-5"/>
       </div>
     </div>
+    </div>
     <div class="row mb-5">
       <div class="col-md-12">
-        <h4 class="text-primary mt-3">Relação dos Prestadores Parceiros</h4>
+        <h4 class="text-primary mt-3">Produtos Cadastrados</h4>
         <table class="table table-bordered shadow-lg">
           <thead>
             <tr class="table-primary">
-              <th>Razão Social</th>
-              <th>Fantasia</th>
-              <th>CNAE</th>
-              <th>Dt. Início</th>              
-              <th>Geo</th>
-              <th>Opções</th>
+              <th>Codigo</th>
+              <th>Nome</th>
+              <th>Descrição</th>
+              <th>Data de Validade</th>              
+              <th>Preço Unitário</th>
+              <th>Quantidade em estoque</th>
             </tr>
           </thead>
           <tbody id="dadosTabela"></tbody>
@@ -139,7 +132,7 @@
 </footer>
 <!-- JS -->
 <script src="js/validatoken.js"></script>
-<script src="js/prestador.js"></script>
+<script src="js/produtos.js"></script>
 
 </body>
 

@@ -30,7 +30,7 @@ access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjUzN
 // POST - Insere um novo registro
 POST {{baseURL}}
 Content-Type: application/json
-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjUzNjdhNDAzNjJlNDg4M2NjOGUyOWMwIn0sImlhdCI6MTY5ODA2OTA1OSwiZXhwIjoxNjk4MzI4MjU5fQ.cLtXR2sCCdocxUISVG7WyX7_Sh8uYCZjKghlVg3YMi8
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjU1MjJiYzQ5NWVlNTEzMzk3NzA0MmU1In0sImlhdCI6MTcwMTA3NzI2MCwiZXhwIjoxNzAxMzM2NDYwfQ.C1Zpz2HoxLKhqFKfCGV0ojQG_k_lS8GUAwl4N30Wkvs
 
 {
     "codigo_produto": 557,

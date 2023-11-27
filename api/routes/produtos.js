@@ -70,7 +70,7 @@ router.get('/id/:id', auth, async(req, res)=> {
 })
 
 /**
- * GET /api/prestadores/nome/:nome
+ * GET /api/PRODUTOS/nome/:nome
  * Lista os produtos pelo nome
  */
 router.get('/nome/:nome', async(req, res)=> {

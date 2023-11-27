@@ -12,27 +12,21 @@ document.getElementById('formProduto').addEventListener('submit', function (even
     if (idProduto.length > 0) { //Se possuir o ID, enviamos junto com o objeto
         produto = {
             "_id": idProduto,
-            "cnpj": document.getElementById('cnpj').value,
-            "razao_social": document.getElementById('razao').value,
-            "cnae_fiscal": document.getElementById('cnae').value,
-            "nome_fantasia": document.getElementById('fantasia').value,
-            "data_inicio_atividade": document.getElementById('inicio').value,
-            "localizacao": {
-                "type": "Point",
-                "coordinates": [document.getElementById('lat').value, document.getElementById('long').value]
-            }
+            "codigo_produto": document.getElementById('codigo').value,
+            "nome_produto": document.getElementById('nome').value,
+            "descricao": document.getElementById('descricao').value,
+            "data_validade": document.getElementById('data-validade').value,
+            "preco_unitario": document.getElementById('preco').value,
+            "quantidade_em_estoque": document.getElementById('quantidade').value,
         }
     } else {
         produto = {
-            "cnpj": document.getElementById('cnpj').value,
-            "razao_social": document.getElementById('razao').value,
-            "cnae_fiscal": document.getElementById('cnae').value,
-            "nome_fantasia": document.getElementById('fantasia').value,
-            "data_inicio_atividade": document.getElementById('inicio').value,
-            "localizacao": {
-                "type": "Point",
-                "coordinates": [document.getElementById('lat').value, document.getElementById('long').value]
-            }
+            "codigo_produto": document.getElementById('codigo').value,
+            "nome_produto": document.getElementById('nome').value,
+            "descricao": document.getElementById('descricao').value,
+            "data_validade": document.getElementById('data-validade').value,
+            "preco_unitario": document.getElementById('preco').value,
+            "quantidade_em_estoque": document.getElementById('quantidade').value,
         }
     }
     salvaProduto(produto)
@@ -127,11 +121,12 @@ async function carregaProdutos() {
             data.forEach(produto => {
                 tabela.innerHTML += `
                 <tr>
-                   <td>${produto.razao_social}</td>
-                   <td>${produto.nome_fantasia}</td>
-                   <td>${produto.cnae_fiscal}</td>
-                   <td>${produto.data_inicio_atividade}</td>                   
-                   <td>${produto.localizacao.coordinates[0]} / ${produto.localizacao.coordinates[1]}</td>        
+                   <td>${produto.codigo_produto}</td>
+                   <td>${produto.nome_produto}</td>
+                   <td>${produto.descricao}</td>
+                   <td>${produto.data_validade}</td>                   
+                   <td>${produto.preco_unitario}</td>  
+                   <td>${produto.quantidade_em_estoque}</td>       
                    <td>
                        <button class='btn btn-danger btn-sm' onclick='removeProduto("${produto._id}")'>🗑 Excluir </button>
                        <button class='btn btn-warning btn-sm' onclick='buscaProdutoPeloId("${produto._id}")'>📝 Editar </button>
@@ -181,13 +176,13 @@ async function buscaProdutoPeloId(id) {
         .then(data => {
             if (data[0]) { //Iremos pegar os dados e colocar no formulário.
                 document.getElementById('id').value = data[0]._id
-                document.getElementById('razao').value = data[0].razao_social
-                document.getElementById('cnpj').value = data[0].cnpj
-                document.getElementById('fantasia').value = data[0].nome_fantasia
-                document.getElementById('cnae').value = data[0].cnae_fiscal
-                document.getElementById('inicio').value = data[0].data_inicio_atividade
-                document.getElementById('lat').value = data[0].localizacao.coordinates[0]
-                document.getElementById('long').value = data[0].localizacao.coordinates[1]
+                document.getElementById('codigo-produto').value = data[0].codigo_produto
+                document.getElementById('nome').value = data[0].nome_produto
+                document.getElementById('descricao').value = data[0].descricao
+                document.getElementById('data-validade').value = data[0].data_validade
+                document.getElementById('preco').value = data[0].preco_unitario
+                document.getElementById('quantidade').value = data[0].quantidade_em_estoque
+                
             }
         })
         .catch(error => {
