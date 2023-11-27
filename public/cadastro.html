@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto</title>
+    <!-- Bootstrap - https://www.bootstrapcdn.com -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/estilo.css" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+
+</head>
+
+<body>
+    <div class="container mt-2">
+        
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+                <div class="card shadow-lg justify-content-center">
+                    <div class="card-header">
+                        <h1 class="text-primary text-align text-center">Cadastro de usuário</h1>
+                    </div>
+                    
+                    <div class="card-body">
+                        <form id="cadastroForm">
+                            <div class="mb-1">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome" name="nomes" autofocus>
+                            </div>
+                            <div class="mb-1">
+                                <label for="login" class="form-label">E-mail do Usuário</label>
+                                <input type="text" class="form-control" id="login" name="login"
+                                    autocomplete="email">
+                            </div>
+                            <div class="mb-1">
+                                <label for="senha" class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="senha" name="senha">
+                            </div>
+                            <div class="mt-2">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-file-earmark-lock"></i> Cadastrar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Já tem cadastro? <a href="index.html">Entre!</a>
+                    </div>
+                </div>
+            </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalMensagem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"> Mensagem</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="mensagem"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
+                </div>
+            </div>
+        </div>
+      </div>
+    <script src="js/cadastro.js"></script>
+    
+    </div>
+</body>
+
+</html>
