@@ -10,7 +10,7 @@ import rotasUsuarios from './routes/usuarios.js'
 
 
 app.use(cors({
-    origin: ['http/127.0.0.1:5500', 'http://localhost:400']
+    origin: ['http/127.0.0.1:5500', 'backend-rest-node-mongodb.vercel.app']
 }))
 
 app.use(express.json()) // irá fazer o parse de arquivos JSON

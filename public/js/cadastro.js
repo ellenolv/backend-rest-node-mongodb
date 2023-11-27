@@ -1,5 +1,5 @@
-//const urlBase = 'https://backend-mongodb-pi.vercel.app/api'
-const urlBase = 'http://localhost:4000/api'
+const urlBase = 'https://backend-rest-node-mongodb.vercel.app/api'
+//const urlBase = 'http://localhost:4000/api'
 document.getElementById("cadastroForm").addEventListener("submit", function (event) {
     event.preventDefault()
     const nome = document.getElementById("nome").value
