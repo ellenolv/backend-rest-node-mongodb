@@ -5,11 +5,11 @@ const access_token = localStorage.getItem("token") || null
 
 //evento submit do formulário
 document.getElementById('formProduto').addEventListener('submit', function (event) {
-    event.preventDefault() // evita o recarregamento
-    const idProduto = document.getElementById('id').value
-    let produto = {}
+    event.preventDefault(); // evita o recarregamento
+    const idProduto = document.getElementById('id').value;
+    let produto = {};
 
-    if (idProduto.length > 0) { //Se possuir o ID, enviamos junto com o objeto
+    if (idProduto.length > 0) { // Se possuir o ID, enviamos junto com o objeto
         produto = {
             "_id": idProduto,
             "codigo_produto": document.getElementById('codigo').value,
@@ -17,8 +17,8 @@ document.getElementById('formProduto').addEventListener('submit', function (even
             "descricao": document.getElementById('descricao').value,
             "data_validade": document.getElementById('data-validade').value,
             "preco_unitario": document.getElementById('preco').value,
-            "quantidade_em_estoque": document.getElementById('quantidade').value,
-        }
+            "quantidade_em_estoque": document.getElementById('quantidade').value, // Corrigido aqui
+        };
     } else {
         produto = {
             "codigo_produto": document.getElementById('codigo').value,
@@ -26,15 +26,15 @@ document.getElementById('formProduto').addEventListener('submit', function (even
             "descricao": document.getElementById('descricao').value,
             "data_validade": document.getElementById('data-validade').value,
             "preco_unitario": document.getElementById('preco').value,
-            "quantidade_em_estoque": document.getElementById('quantidade').value,
-        }
+            "quantidade_em_estoque": document.getElementById('quantidade').value, // Corrigido aqui
+        };
     }
-    salvaProduto(produto)
-})
+    salvaProduto(produto);
+});
+
 
 async function salvaProduto(produto) {    
-    if (produto.hasOwnProperty('_id')) { //Se o produto tem o id iremos alterar os dados (PUT)
-        // Fazer a solicitação PUT para o endpoint dos produtos
+    if (produto.hasOwnProperty('_id')) { 
         await fetch(`${urlBase}/produtos`, {
             method: "PUT",
             headers: {
@@ -49,9 +49,9 @@ async function salvaProduto(produto) {
                 if (data.acknowledged) {
                     alert('✔ produto alterado com sucesso!')
                     //Limpar o formulário
-                    document.getElementById('fromProdutos').reset()
+                    document.getElementById('formProduto').reset()
                     //Atualiza a UI
-                    carregaProduto()
+                    carregaProdutos()
                 } else if (data.errors) {
                     // Caso haja erros na resposta da API
                     const errorMessages = data.errors.map(error => error.msg).join("\n");
@@ -76,7 +76,7 @@ async function salvaProduto(produto) {
                 "Content-Type": "application/json",
                 "access-token": access_token //envia o token na requisição
             },
-            body: JSON.stringify(produtos)
+            body: JSON.stringify(produto)
         })
             .then(response => response.json())
             .then(data => {
@@ -176,7 +176,7 @@ async function buscaProdutoPeloId(id) {
         .then(data => {
             if (data[0]) { //Iremos pegar os dados e colocar no formulário.
                 document.getElementById('id').value = data[0]._id
-                document.getElementById('codigo-produto').value = data[0].codigo_produto
+                document.getElementById('codigo').value = data[0].codigo_produto
                 document.getElementById('nome').value = data[0].nome_produto
                 document.getElementById('descricao').value = data[0].descricao
                 document.getElementById('data-validade').value = data[0].data_validade
