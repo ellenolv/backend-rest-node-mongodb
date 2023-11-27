@@ -1,2 +1,4 @@
 MONGODB_URI = SuaStringdoMongo
 MONGODB_DB = SeuDatabase
+SECRET_KEY = !@FatecItu@!
+EXPIRES_IN = 72h

@@ -1,0 +1,51 @@
+// Teste do endpoint usuarios
+@baseURL = http://localhost:4000/api/usuarios
+//@baseURL  = https://backend-mongodb-pi.vercel.app/api/usuarios
+
+###
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "nome": "José Alves Silva",
+    "email": "aluno@fatecitu.edu.br",
+    "senha": "Alun0@"
+}
+
+
+###
+// POST - Efetuar o login
+POST {{baseURL}}/login
+Content-Type: application/json
+
+{
+    "email": "aluno@fatecitu.edu.br",
+    "senha": "Alun0@"
+}
+
+###
+// GET - Obtem os usuários
+GET {{baseURL}}
+Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjUzNjdhNDAzNjJlNDg4M2NjOGUyOWMwIn0sImlhdCI6MTY5ODA2OTA1OSwiZXhwIjoxNjk4MzI4MjU5fQ.cLtXR2sCCdocxUISVG7WyX7_Sh8uYCZjKghlVg3YMi8
+
+###
+// DELETE - Remove o usuário pelo id
+DELETE {{baseURL}}/65367a063f4dc7100a61673d
+Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjUzNjdhNDAzNjJlNDg4M2NjOGUyOWMwIn0sImlhdCI6MTY5ODA2OTA1OSwiZXhwIjoxNjk4MzI4MjU5fQ.cLtXR2sCCdocxUISVG7WyX7_Sh8uYCZjKghlVg3YMi8
+
+###
+// PUT - Edita o usuário pelo id
+PUT {{baseURL}}/65367a40362e4883cc8e29c0
+Content-Type: application/json
+access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjp7ImlkIjoiNjUzNjdhNDAzNjJlNDg4M2NjOGUyOWMwIn0sImlhdCI6MTY5ODA2OTA1OSwiZXhwIjoxNjk4MzI4MjU5fQ.cLtXR2sCCdocxUISVG7WyX7_Sh8uYCZjKghlVg3YMi8
+
+{   
+    "nome": "José Alves Silva ALTERADO",
+    "email": "ze2@uol.com.br",
+    "ativo": true,
+    "tipo": "Cliente",
+    "senha": "Alun0@",
+    "avatar": "https://ui-avatars.com/api/?name=José+Alves+Silva&background=F00&color=00F"
+}

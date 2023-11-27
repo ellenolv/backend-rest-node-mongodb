@@ -1,11 +1,18 @@
 import express from 'express'
 
+import cors from 'cors'
 const app = express()
 const port = 4000 
 //import das rotas da app
 import rotasProdutos from './routes/produtos.js'
+import rotasUsuarios from './routes/usuarios.js'
 
-//app.use(express.urlencoded({ extended: true}))
+
+
+app.use(cors({
+    origin: ['http/127.0.0.1:5500', 'http://localhost:400']
+}))
+
 app.use(express.json()) // irá fazer o parse de arquivos JSON
 //Rotas de conteúdo público
 app.use('/', express.static('public'))
@@ -15,6 +22,7 @@ app.use('/favicon.ico', express.static('public/images/favicon.png'))
 
 //Rotas da API
 app.use('/api/produtos', rotasProdutos)
+app.use('/api/usuarios', rotasUsuarios)
 
 app.get('/api', (req, res) => {
     res.status(200).json({

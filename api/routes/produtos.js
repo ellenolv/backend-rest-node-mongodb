@@ -6,6 +6,9 @@ import {check, validationResult} from 'express-validator'
 const router = express.Router()
 const {db, ObjectId} = await connectToDatabase()
 const nomeCollection = 'produtos'
+
+import auth from '../middleware/auth.js'
+
 const validaProduto = [
     check('codigo_produto')
     .not().isEmpty().trim().withMessage('É obrigatório informar o código do produto')
@@ -29,7 +32,7 @@ const validaProduto = [
  * GET /api/produtos
  * Lista todos os produtos de serviço
  */
-router.get('/', async(req, res) => {
+router.get('/', auth, async(req, res) => {
     try{
         db.collection(nomeCollection).find().sort({nome_produto: 1}).toArray((err, docs) => {
             if(!err){
@@ -51,7 +54,7 @@ router.get('/', async(req, res) => {
  * GET /api/produtos/id/:id
  * Lista todos os produtos 
  */
-router.get('/id/:id', async(req, res)=> {
+router.get('/id/:id', auth, async(req, res)=> {
     try{
         db.collection(nomeCollection).find({'_id': {$eq: ObjectId(req.params.id)}})
         .toArray((err, docs) => {
@@ -91,7 +94,7 @@ router.get('/nome/:nome', async(req, res)=> {
  * Apaga o produto pelo id
  */
 
-router.delete('/:id', async(req, res) => {
+router.delete('/:id', auth, async(req, res) => {
     await db.collection(nomeCollection)
     .deleteOne({"_id": { $eq: ObjectId(req.params.id)}})
     .then(result => res.status(200).send(result))
@@ -102,7 +105,7 @@ router.delete('/:id', async(req, res) => {
  * POST /api/produtos
  * Insere um novo produto 
  */
-router.post('/', validaProduto, async(req, res) => {
+router.post('/', validaProduto, auth, async(req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()){
         return res.status(400).json(({
@@ -120,7 +123,7 @@ router.post('/', validaProduto, async(req, res) => {
  * PUT /api/produto
  * Altera um produto
  */
-router.put('/', validaProduto, async(req, res) => {
+router.put('/', validaProduto, auth, async(req, res) => {
     let idDocumento = req.body._id //armazenando o id do documento
     delete req.body._id //iremos remover o id do body
     const errors = validationResult(req)
