@@ -30,11 +30,17 @@ Siga os passos abaixo para executar o projeto localmente:
 2. Renomeie o arquivo `.env-example` para `.env` e configure a sua string de conexão ao MongoDB.
 3. Instale as dependências com o comando `npm install` ou  `npm i`.
 4. Execute o servidor com o comando `npm run dev`.
+   
 
 ## 📦 Pacotes Utilizados
 
-- `express`: Framework web rápido, flexível e minimalista para Node.js.
-- `mongodb@4.2`: Driver oficial do MongoDB para Node.js.
-- `dotenv`: Carrega variáveis ​​de ambiente do arquivo .env para o processo.env.
-- `nodemon` (dev): Ferramenta que monitora as alterações no código-fonte e reinicia automaticamente o servidor.
-- `express-validator`: Middleware para validação de dados de entrada em solicitações HTTP.
+```
+npm i express
+npm i mongodb@4.2
+npm i dotenv
+npm i nodemon --dev
+npm i express-validator
+npm i bcryptjs
+npm i jsonwebtoken
+npm i cors
+```
